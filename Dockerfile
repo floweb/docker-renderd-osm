@@ -1,6 +1,6 @@
 # DOCKER-VERSION 1.3.1
 # VERSION 0.1
-FROM debian:jessie
+FROM ubuntu:14.04
 MAINTAINER Maximilian Güntner <maximilian.guentner@gmail.com>
 
 ENV OSM_CARTO_VERSION 2.24.0
