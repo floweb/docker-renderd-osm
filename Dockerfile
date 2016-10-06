@@ -22,6 +22,9 @@ RUN mv /tmp/osm-bright-$OSM_BRIGHT_VERSION /usr/share/mapnik
 # Create symlink for shapefiles
 RUN ln -s /usr/share/mapnik/openstreetmap-carto-$OSM_CARTO_VERSION/data /usr/share/mapnik/osm-bright-$OSM_BRIGHT_VERSION/shp
 
+# Add our custom mapnik style folder
+RUN mkdir /usr/share/mapnik/osm-custom
+
 RUN cd /tmp && wget https://github.com/openstreetmap/mod_tile/archive/$MOD_TILE_VERSION.tar.gz && tar -xzf $MOD_TILE_VERSION.tar.gz && rm $MOD_TILE_VERSION.tar.gz
 RUN cd /tmp/mod_tile-$MOD_TILE_VERSION/ && ./autogen.sh && ./configure && make -j $PARALLEL_BUILD && make install && make install-mod_tile
 
