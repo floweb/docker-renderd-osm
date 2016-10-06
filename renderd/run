@@ -9,6 +9,9 @@ sed -i -e "s/{{OSM_CARTO_XML_DIR}}/\/usr\/share\/mapnik\/openstreetmap-carto-$OS
 sed -i -e "s/{{OSM_BRIGHT_XML_DIR}}/\/usr\/share\/mapnik\/osm-bright-$OSM_BRIGHT_VERSION\/OSMBright\/style.xml/" \
        /usr/local/etc/renderd.conf
 
+sed -i -e "s/{{OSM_CUSTOM_XML_DIR}}/\/usr\/share\/mapnik\/osm-custom\/style.xml/" \
+       /usr/local/etc/renderd.conf
+
 # osm-carto setup
 cd /usr/share/mapnik/openstreetmap-carto-$OSM_CARTO_VERSION/
 cp project.mml.orig project.mml
