@@ -16,9 +16,7 @@ RUN apt-get update &&  \
       apache2-dev  \
       autoconf \ 
       curl  \
-      fonts-noto-cjk \
-      fonts-noto-hinted \
-      fonts-noto-unhinted \
+      fonts-noto \
       gdal-bin \
       libmapnik-dev \
       libtool  \
