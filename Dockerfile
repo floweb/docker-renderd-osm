@@ -9,8 +9,27 @@ ENV MOD_TILE_VERSION master
 ENV PARALLEL_BUILD 4
 
 RUN touch /etc/inittab
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y -q squid-deb-proxy-client 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q autoconf libtool libmapnik-dev apache2-dev curl unzip gdal-bin mapnik-utils node-carto node-millstone apache2 wget runit sudo
+RUN apt-get update &&  \
+    apt-get upgrade -y && \
+    apt-get install -y -q squid-deb-proxy-client  \
+      apache2  \
+      apache2-dev  \
+      autoconf \ 
+      curl  \
+      fonts-noto-cjk \
+      fonts-noto-hinted \
+      fonts-noto-unhinted \
+      gdal-bin \
+      libmapnik-dev \
+      libtool  \
+      mapnik-utils  \
+      node-carto  \
+      node-millstone  \
+      runit  \
+      sudo \
+      ttf-unifont \
+      unzip  \
+      wget 
 
 RUN cd /tmp && wget https://github.com/gravitystorm/openstreetmap-carto/archive/v$OSM_CARTO_VERSION.tar.gz && tar -xzf v$OSM_CARTO_VERSION.tar.gz
 RUN mkdir /usr/share/mapnik && mv /tmp/openstreetmap-carto-$OSM_CARTO_VERSION /usr/share/mapnik/
