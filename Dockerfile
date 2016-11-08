@@ -44,7 +44,7 @@ RUN ln -s /usr/share/mapnik/openstreetmap-carto-$OSM_CARTO_VERSION/data /usr/sha
 # Add our custom mapnik style folder
 # RUN mkdir /usr/share/mapnik/osm-custom
 RUN cd    /usr/share/mapnik
-RUN git clone clone https://github.com/chatelao/OpenTopoMap
+RUN git clone https://github.com/chatelao/OpenTopoMap
 COPY OpenTopoMap/mapnik osm-custom
 RUN mv osm-custom/opentopomap.xml osm-custom/style.xml
 
