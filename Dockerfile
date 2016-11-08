@@ -45,7 +45,7 @@ RUN ln -s /usr/share/mapnik/openstreetmap-carto-$OSM_CARTO_VERSION/data /usr/sha
 # RUN mkdir /usr/share/mapnik/osm-custom
 RUN cd    /usr/share/mapnik
 RUN git clone https://github.com/chatelao/OpenTopoMap
-COPY OpenTopoMap/mapnik osm-custom
+RUN mv OpenTopoMap/mapnik osm-custom
 RUN mv osm-custom/opentopomap.xml osm-custom/style.xml
 
 RUN cd /tmp && wget https://github.com/openstreetmap/mod_tile/archive/$MOD_TILE_VERSION.tar.gz && tar -xzf $MOD_TILE_VERSION.tar.gz && rm $MOD_TILE_VERSION.tar.gz
