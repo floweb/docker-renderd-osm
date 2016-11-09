@@ -43,10 +43,9 @@ RUN ln -s /usr/share/mapnik/openstreetmap-carto-$OSM_CARTO_VERSION/data /usr/sha
 
 # Add our custom mapnik style folder
 # RUN mkdir /usr/share/mapnik/osm-custom
-RUN cd    /usr/share/mapnik
-RUN git clone https://github.com/chatelao/OpenTopoMap
-RUN mv OpenTopoMap/mapnik osm-custom
-RUN mv osm-custom/opentopomap.xml osm-custom/style.xml
+RUN cd /usr/share/mapnik && git clone https://github.com/chatelao/OpenTopoMap
+RUN mv /usr/share/mapnik/OpenTopoMap/mapnik /usr/share/mapnik/osm-custom
+RUN mv /usr/share/mapnik/osm-custom/osm-custom/opentopomap.xml /usr/share/mapnik/osm-custom/style.xml
 
 RUN cd /tmp && wget https://github.com/openstreetmap/mod_tile/archive/$MOD_TILE_VERSION.tar.gz && tar -xzf $MOD_TILE_VERSION.tar.gz && rm $MOD_TILE_VERSION.tar.gz
 RUN cd /tmp/mod_tile-$MOD_TILE_VERSION/ && ./autogen.sh && ./configure && make -j $PARALLEL_BUILD && make install && make install-mod_tile
