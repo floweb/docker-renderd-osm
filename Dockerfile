@@ -29,8 +29,7 @@ RUN apt-get update &&  \
       unifont \
       unzip  \
       vim \
-      wget  
-
+      wget \
       libmapnik3.0 \
       libmapnik-dev \
       mapnik-utils \
