@@ -6,6 +6,7 @@ MAINTAINER Maximilian Güntner <maximilian.guentner@gmail.com>
 ENV OSM_CARTO_VERSION 2.24.0
 ENV OSM_BRIGHT_VERSION master
 ENV MOD_TILE_VERSION master
+ENV MAPNIK_VERSION 3.0
 ENV PARALLEL_BUILD 4
 
 RUN touch /etc/inittab
