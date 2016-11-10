@@ -37,7 +37,7 @@ sed -i -e "s|^config\[\"path\"\].*|config\[\"path\"\] = \"$(pwd)\"|" \
 
 ./make.py
 cd OSMBright
-millstone project.mml > project.local.mml
-carto project.local.mml > style.xml
+# millstone project.mml > project.local.mml
+carto project.mml > style.xml
 
 exec sudo -u www-data LD_LIBRARY_PATH=/usr/local/lib/ /usr/local/bin/renderd -f --config /usr/local/etc/renderd.conf
