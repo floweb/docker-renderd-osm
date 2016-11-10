@@ -1,6 +1,6 @@
 # DOCKER-VERSION 1.3.1
 # VERSION 0.1
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER Maximilian Güntner <maximilian.guentner@gmail.com>
 
 ENV OSM_CARTO_VERSION 2.24.0
@@ -18,7 +18,7 @@ RUN apt-get update &&  \
       curl  \
       fonts-noto \
       gdal-bin \
-      git \
+      libmapnik3.0 \
       libmapnik-dev \
       libtool  \
       mapnik-utils  \
@@ -28,7 +28,8 @@ RUN apt-get update &&  \
       sudo \
       ttf-unifont \
       unzip  \
-      wget 
+      vim \
+      wget  
 
 RUN cd /tmp && wget https://github.com/gravitystorm/openstreetmap-carto/archive/v$OSM_CARTO_VERSION.tar.gz && tar -xzf v$OSM_CARTO_VERSION.tar.gz
 RUN mkdir /usr/share/mapnik && mv /tmp/openstreetmap-carto-$OSM_CARTO_VERSION /usr/share/mapnik/
