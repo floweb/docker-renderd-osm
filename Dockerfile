@@ -18,6 +18,7 @@ RUN apt-get update &&  \
       curl  \
       fonts-noto \
       gdal-bin \
+      git \
       libmapnik3.0 \
       libmapnik-dev \
       libtool  \
