@@ -7,6 +7,7 @@ ENV OSM_CARTO_VERSION 2.44.1
 ENV OSM_BRIGHT_VERSION master
 ENV OPENTOPOMAP_VERSION master
 ENV MOD_TILE_VERSION master
+ENV MAPNIK_VERSION 3.0
 ENV PARALLEL_BUILD 4
 
 RUN touch /etc/inittab
@@ -30,7 +31,6 @@ RUN apt-get update &&  \
       vim \
       wget  
 
-RUN apt-get install -y -q  \
       libmapnik3.0 \
       libmapnik-dev \
       mapnik-utils \
