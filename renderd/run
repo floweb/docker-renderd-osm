@@ -2,7 +2,7 @@
 exec 2>&1
 source /etc/envvars
 sed -i -e "s/{{OSM_CARTO_XML_DIR}}/\/usr\/share\/mapnik\/openstreetmap-carto-$OSM_CARTO_VERSION\/style.xml/" \
-       -e "s/{{PLUGINS_DIR}}/\/usr\/lib\/mapnik\/2.2\/input\//" \
+       -e "s/{{PLUGINS_DIR}}/\/usr\/lib\/mapnik\/$MAPNIK_VERSION\/input\//" \
        -e "s/{{HOST}}/localhost/" \
        /usr/local/etc/renderd.conf
 
