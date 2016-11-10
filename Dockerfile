@@ -33,7 +33,9 @@ RUN apt-get update &&  \
 RUN apt-get install -y -q  \
       libmapnik3.0 \
       libmapnik-dev \
-      mapnik-utils 
+      mapnik-utils \
+      python-mapnik \
+      unifont
 
 RUN cd /tmp && wget https://github.com/gravitystorm/openstreetmap-carto/archive/v$OSM_CARTO_VERSION.tar.gz && tar -xzf v$OSM_CARTO_VERSION.tar.gz
 RUN mkdir /usr/share/mapnik && mv /tmp/openstreetmap-carto-$OSM_CARTO_VERSION /usr/share/mapnik/
