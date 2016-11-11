@@ -18,7 +18,9 @@ RUN apt-get update &&  \
       apache2-dev  \
       autoconf \ 
       curl  \
-      fonts-noto \
+      fonts-noto-cjk \
+      fonts-noto-hinted \
+      fonts-noto-unhinted \
       gdal-bin \
       git \
       libtool  \
@@ -26,7 +28,7 @@ RUN apt-get update &&  \
       node-millstone  \
       runit  \
       sudo \
-      unifont \
+      ttf-unifont \
       unzip  \
       vim \
       wget \
