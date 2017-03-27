@@ -15,24 +15,22 @@ sed -i -e "s/{{OSM_CUSTOM_XML_DIR}}/\/usr\/share\/mapnik\/osm-custom\/style.xml/
 # osm-carto setup
 cd /usr/share/mapnik/openstreetmap-carto-$OSM_CARTO_VERSION/
 cp project.mml.orig project.mml
-# sed -i "s/\"dbname\": \"gis\"/\"host\": \"$PG_PORT_5432_TCP_ADDR\",\n \
-# \"port\": \"$PG_PORT_5432_TCP_PORT\",\n \
-# \"user\": \"$PG_ENV_OSM_USER\",\n \
-# \"dbname\":\"$PG_ENV_OSM_DB\"/" project.mml
-sed -i "s/\"dbname\": \"gis\"/\"host\": \"pg\",\n \
+
+sed -i "s/\"dbname\": \"osm\"/\"host\": \"osm-db\",\n \
 \"port\": \"5432\",\n \
 \"user\": \"osm\",\n \
-\"dbname\":\"gis\"/" project.mml
+\"dbname\":\"osm\"/" project.mml
 carto project.mml > style.xml
 
 # osm-bright setup
 cd /usr/share/mapnik/osm-bright-$OSM_BRIGHT_VERSION/
 cp configure.py.sample configure.py
+
 # prepare configure.py
 sed -i -e "s|^config\[\"path\"\].*|config\[\"path\"\] = \"$(pwd)\"|" \
-       -e "s/^config\[\"postgis\"\]\[\"host\"\].*/config\[\"postgis\"\]\[\"host\"\] = \"pg\"/" \
+       -e "s/^config\[\"postgis\"\]\[\"host\"\].*/config\[\"postgis\"\]\[\"host\"\] = \"osm-db\"/" \
        -e "s/^config\[\"postgis\"\]\[\"port\"\].*/config\[\"postgis\"\]\[\"port\"\] = \"5432\"/" \
-       -e "s/^config\[\"postgis\"\]\[\"dbname\"\].*/config\[\"postgis\"\]\[\"dbname\"\] = \"gis\"/" \
+       -e "s/^config\[\"postgis\"\]\[\"dbname\"\].*/config\[\"postgis\"\]\[\"dbname\"\] = \"osm\"/" \
        -e "s/^config\[\"postgis\"\]\[\"user\"\].*/config\[\"postgis\"\]\[\"user\"\] = \"osm\"/" configure.py
 
 ./make.py
